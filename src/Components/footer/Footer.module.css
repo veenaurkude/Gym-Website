@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.container{
+    display: flex;
+    background-color:rgba(128, 128, 128, 0.991);
+    padding: 1rem 2rem;
+}
+
+.footer_title{
+    margin:0.8rem;
+    font-size:17px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    padding: 1rem;
+}
+
+.footer_content{ 
+    display: flex;
+    margin:1rem 0;
+}
+
+.footer_content ul{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 1rem;
+}
+
+.footer_content a{
+    text-decoration: none;
+    margin:.5rem 1;
+}
+
+.icons{
+    margin:1rem 1rem 0 0;
+    font-size:20px;
+
+}

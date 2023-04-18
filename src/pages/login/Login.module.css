@@ -1,0 +1,71 @@
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99vw;
+    height: 90vh;
+    /* background-image: linear-gradient(79deg,rgb(101, 101, 199),rgb(238, 235, 235),rgb(112, 60, 60)); */
+    background-image: url('https://cdn.pixabay.com/photo/2017/08/07/14/02/man-2604149__340.jpg');
+    background-size: cover;
+    filter: opacity();
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.loginContainer {
+    border: 1px solid;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: rgb(155, 125, 89);
+    height: 30vh;
+}
+
+.loginInput {
+    width: 20vw;
+    height: 6vh;
+    border: none;
+    border-radius: 10px;
+}
+
+.loginInput:hover {
+    background-color: blanchedalmond;
+}
+
+.logbtn {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: white;
+    width: 9vw;
+    font-size: 17px;
+}
+
+.logbtn:hover {
+    background-color: greenyellow;
+    color: black;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.regfoot {
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.spanReg {
+    color: rgb(148, 5, 5);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.spanReg:hover {
+    color: rgb(165, 54, 10);
+    font-size: 15px;
+}
