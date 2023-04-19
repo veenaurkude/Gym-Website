@@ -16,8 +16,8 @@ export function Videos(props) {
       <source src="1.mp4" onChange={handleVideo} value={videoId} />
       <iframe
         key={videoId}
-        width="300"
-        height="400"
+        width="500"
+        height="300"
         src={props.video}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
