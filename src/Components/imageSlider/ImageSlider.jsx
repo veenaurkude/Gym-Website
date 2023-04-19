@@ -1,5 +1,5 @@
 import styles from './ImageSlider.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function ImageSlider() {
 
@@ -10,10 +10,14 @@ export function ImageSlider() {
     const [image, setImage] = useState(imgArr[0]);
     const [index, setIndex] = useState(0);
 
+    
+
+// useEffect( ()=>(
 //     setInterval( ()=>{
 //         setImage(imgArr[index+1])
 //         setIndex(index+1)
 // },3000)
+// ),[index])
 
     function handleIndex() {
         // setIndex(index+1)
@@ -23,7 +27,7 @@ export function ImageSlider() {
 
     return (
         <div>
-            <img src={image} alt='gym'/>
+            <img className={styles.img} src={image} alt='gym'/>
             <button onClick={handleIndex}>click</button>
         </div>
     );

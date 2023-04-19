@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import styles from './Register.module.css';
+import Joi from 'joi'
 
 export function Register() {
   const [fullName, setFullName] = useState("");
@@ -9,6 +10,33 @@ export function Register() {
   const [user, setUser] = useState([]);
 
   const navigate = useNavigate()
+
+  const Joi = require('joi');
+
+const schema = Joi.object({
+    username: Joi.string()
+        .alphanum()
+        .min(6)
+        .max(20)
+        .required(),
+
+        email: Joi.string()
+        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
+
+    password: Joi.string()
+        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+
+    repeat_password: Joi.ref('password')
+})
+
+// useEffect( ()=>{
+//   schema.validateAsync(user[0]).then((response)=> {
+//     localStorage.setItem("user", JSON.stringify(user))
+//   })
+//   .catch((error) => {
+//     alert(error)
+//   });
+// },[user])
 
   function handleName(e) {
     setFullName(e.target.value);
@@ -24,7 +52,7 @@ export function Register() {
   }
 
   function handleRegister() {
-    navigate('/')
+    navigate('/login')
   }
 
   function handleSubmit(e) {
@@ -41,11 +69,18 @@ export function Register() {
     console.log(user)
   }
 
+  const { error, value } = schema.validate({
+    username: fullName,
+    // password: password
+  });
+
+  // console.log(schema)
+  console.log(error)
   // function handleFormChange() {
   //   navigate('login');
   // }
 
-  localStorage.setItem('user', JSON.stringify(user))
+  localStorage.setItem('user', JSON.stringify(user));
 
   return (
     <div className={styles.regContainer}>
@@ -62,6 +97,9 @@ export function Register() {
           className={styles.regInput}
           required
         />
+        {
+          error ? <p>{error.message}</p> : ''
+        }
         <br />
 
         <label htmlFor="email"></label>
