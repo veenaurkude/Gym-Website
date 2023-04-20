@@ -14,13 +14,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 1rem;
 }
 
 .loginContainer {
     border: 1px solid;
-    padding: 40px;
-    border-radius: 15px;
+    padding: 3rem;
+    border-radius: 1rem;
     background-color: rgb(155, 125, 89);
     height: 30vh;
 }
@@ -29,7 +29,7 @@
     width: 20vw;
     height: 6vh;
     border: none;
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 .loginInput:hover {
@@ -38,18 +38,18 @@
 
 .logbtn {
     border: none;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 0.4rem;
+    border-radius: 1rem;
     background-color: blueviolet;
     color: white;
-    width: 9vw;
-    font-size: 17px;
+    min-width: 10vw;
+    font-size: 1.4rem;
 }
 
 .logbtn:hover {
     background-color: greenyellow;
     color: black;
-    font-weight: 900;
+    font-weight: 700;
     cursor: pointer;
 }
 

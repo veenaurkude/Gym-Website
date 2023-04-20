@@ -1,6 +1,7 @@
 .container {
     display: flex;
     border: 1px solid;
+    width: 99vw;
     height: 8vh;
     background-image: linear-gradient(69deg, rgb(68, 67, 67),rgb(109, 67, 67),rgb(63, 59, 59));
     align-items: center;
@@ -14,18 +15,19 @@
     /* flex: 1; */
 
 }
-
-.linkContainer {
+.menuLinks {
     display: flex;
-    /* flex: 1; */
-    gap: 25px;
-    margin-left: 90px;
+    flex: 1;
+    gap: 2rem;
+    margin-left: 1rem;
 }
 
 .link {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    gap: 2rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -36,25 +38,130 @@
 }
 
 .joinBtn {
-    margin-left: 100px;
-    /* flex: 1; */
+    
 }
 
-.linkGym {
+.linkJoin {
+    background-color: red;
+    padding: 0.3rem;
+    border-radius: .4rem;
+}
+
+.linkJoin:hover {
+    color: rgb(128, 32, 99);
+}
+
+.hamburger {
+    /* display: block; */
+    font-size: 2rem;
+    color: rgb(20, 20, 20);
+    cursor: pointer;
+  }
+  
+  .mobileMenu {
+    display: none;
+  }
+  
+  .desktopLinks {
+    display: flex;
+  }
+
+
+   @media screen and (max-width: 768px) {
+
+    .linkContainer {
+      flex-direction: column;
+      /* padding: 5rem; */
+    }
+  
+    .link {
+      margin: 0;
+      color: #583535;
+      padding: 0.5rem;
+      font-weight: 700;
+    }
+  
+    .desktopLinks {
+      display: none;
+    }
+  
+    .mobileMenu {
+      display: block;
+      position: relative;
+    }
+
+    .hamburger {
+      position: absolute;
+      top: 50%;
+      /* right: 2rem; */
+      transform: translateY(-50%);
+    }
+  
+    .menuLinks {
+      position: absolute;
+      flex-direction: column;
+      background-color: rgb(201, 195, 188, 0.8);
+      top: 3rem;
+      left: -100%;
+      margin-left: 0;
+      padding: 1.7rem;
+      gap: 1rem;
+      /* width: 100%; */
+      z-index: 999;
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+      /* transition: left 0.2s; */
+    }
+  
+    .menuLinks.active {
+      left: 0;
+    }
+  }
+
+  .gymContainer {
+    /* justify-content: none; */
+    align-items: start;
+  }
+
+  .linkGym {
+    display: flex;
     text-decoration: none;
     color: rgb(228, 23, 23);
-    font-size: 25px;
+    font-size: 1.5rem;
     font-weight: 900;
-    margin-left: 80px;
+    /* margin-left: 3rem; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .linkJoin {
     text-decoration: none;
     color: white;
-    font-size: 20px;
-    padding: 1vh;
-    background-color: red;
+    font-weight: 900;
+    font-size: 1.3rem;
+    /* padding-bottom: 1vh; */
+    /* background-color: red; */
     border: none;
-    border-radius: 10px;
+    /* border-radius: 1rem; */
 }
+  
+  /* @media screen and (min-width: 769px) {
+    
+    .linkContainer {
+      flex-direction: column;
+    }
+  
+    .linkJoin {
+      margin-left: 1rem;
+    }
+  
+    .mobileMenu {
+      display: none;
+    }
+
+    .menuLinks {
+        z-index: 9999;
+    }
+  
+    .desktopLinks {
+      display: flex;
+    }
+  } */

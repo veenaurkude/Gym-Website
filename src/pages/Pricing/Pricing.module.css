@@ -1,4 +1,4 @@
- 
+
  
  .container{
     display: flex;
@@ -6,6 +6,7 @@
     color: aliceblue;
     padding-top: 15vh;
     padding-bottom: 15vh;
+
 }
 
 .card1{
@@ -199,3 +200,4 @@
         margin-right: 0 auto;
     }
   }
+

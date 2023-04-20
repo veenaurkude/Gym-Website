@@ -1,7 +1,7 @@
 import styles from './Home.module.css'
 import { ImageSlider } from '../../Components/imageSlider/ImageSlider';
 import { AboutUs } from '../AboutUs/AboutUs';
-import { Footer } from '../../Components/footer/Footer';
+import { Pricing } from '../Pricing/Pricing';
 
 export function Home() {
 
@@ -10,8 +10,8 @@ export function Home() {
         <div>
             {/* <h1>Home Page</h1> */}
             <ImageSlider />
-            {/* <AboutUs /> */}
-            <Footer />
+            <AboutUs />
+            <Pricing />
         </div>
     );
 }
