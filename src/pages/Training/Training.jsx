@@ -1,4 +1,5 @@
 import styles from "./Training.module.css";
+import { Footer } from "../../Components/footer/Footer";
 import { useState } from "react";
 
 export function Training() {
@@ -26,6 +27,7 @@ export function Training() {
         )}
       </div>
 
+      <Footer />
     </div>
   );
 }

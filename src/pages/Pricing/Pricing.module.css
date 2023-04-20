@@ -2,32 +2,33 @@
  
  .container{
     display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(22, 17, 17);
     color: aliceblue;
-    padding-top: 15vh;
+    padding-top: 8vh;
     padding-bottom: 15vh;
 
 }
 
 .card1{
     border: 2px solid rgb(232, 229, 229);
-    margin-left: 15%;
-    padding-top: 20px;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 50vh;
     height: 70vh;
     justify-content: center;
 }
 
 .s1{
-    font-size: 28px;
-    margin-left: 90px;
+    font-size: 2rem;
+    margin-left: 5rem;
     font-weight: bold;
 }
 
 .s2 {
-    margin-left: 90px;
+    margin-left: 6rem;
     font-size: 30px;
     margin-top: 2vh;
   }
@@ -69,35 +70,56 @@
     margin-bottom: 20px;
     width: 50vh;
     height: 80vh;
-    color: black;
+    color: rgb(224, 219, 219);
 }
 
 .s5{
     font-size: 28px;
     margin-left: 50px;
-    font-weight: bold;
+    font-weight: 900;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: white;
+    color: black;
 }
 
 .s6{
     margin-left: 90px;
     font-size: 30px;
     margin-top: 2vh;
+    background-color: white;
+    color: black;
+    font-weight: 900;
   }
 
 .s7{
     font-size: 60px;
     margin-right: 20px;
     margin-top: 5vh;
+    background-color: white;
+    font-weight: 900;
+    color: black;
   }
 
 .s8{
     margin-left: 17vh;
     font-size: 20px;
+    background-color: white;
+    font-weight: 900;
+    color: black;
+}
+
+.para {
+    margin-top: 10vh;
+    margin-left: 2vh;
+    color: white;
 }
 
 .p{
     margin-top: 10vh;
     margin-left: 2vh;
+    background-color: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .btns{
