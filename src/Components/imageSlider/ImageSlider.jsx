@@ -1,5 +1,6 @@
 import styles from './ImageSlider.module.css';
 import { useEffect, useState } from 'react';
+import { Footer } from '../footer/Footer';
 
 export function ImageSlider() {
 
@@ -42,6 +43,7 @@ export function ImageSlider() {
             <div className={styles.imgText}>
                 <h2>{imgArr[index].text}</h2>
             </div>
+            <Footer />
         </div>
     );
 }

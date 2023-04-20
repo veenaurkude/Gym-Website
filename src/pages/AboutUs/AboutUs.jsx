@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './AboutUs.module.css'
-import { Videos } from '../../Components/Video/Video'
-import video1 from '../../Components/Video/video1.mp4'
-import video3 from '../../Components/Video/video3.mp4'
+import { Footer } from '../../Components/footer/Footer'
+import { Videos } from '../../Components/video/Videos'
+import video1 from '../../Components/video/video1.mp4'
+import video3 from '../../Components/video/video3.mp4'
 
 export function AboutUs() {
 
@@ -59,6 +60,8 @@ export function AboutUs() {
         </div>
 
       </div>
+
+      <Footer />
 
     </div>
   )
