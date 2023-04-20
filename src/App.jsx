@@ -7,7 +7,6 @@ import { Pricing } from './pages/Pricing/Pricing';
 import { Navbar } from './navbar';
 import { Login } from './pages/login/Login';
 import { Register } from './pages/register/Register';
-import { Footer } from './Components/footer/Footer';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
         <Route path='login' element={<Login />}/> 
         <Route path='login/register' element={<Register />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

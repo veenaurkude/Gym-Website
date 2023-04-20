@@ -3,32 +3,45 @@ import { useEffect, useState } from 'react';
 
 export function ImageSlider() {
 
-    const imgArr = ['https://wallpapercave.com/wp/wp3018787.jpg',
-'https://cdn.pixabay.com/photo/2017/08/07/14/02/man-2604149__340.jpg',
-'https://c4.wallpaperflare.com/wallpaper/76/537/146/fitness-muscle-muscle-rod-wallpaper-preview.jpg']
+    const imgArr = [
+        {
+          url: 'https://wallpapercave.com/wp/wp3018787.jpg',
+          text: 'BUILD YOUR BODY - TRANSFORM YOUR LIFE'
+        },
+        {
+          url: 'https://mcdn.wallpapersafari.com/medium/3/21/9MqoKp.jpg',
+          text: 'ARE U READY TO GET FIT, STRONG AND MOTIVATED'
+        },
+        {
+          url: 'https://c4.wallpaperflare.com/wallpaper/76/537/146/fitness-muscle-muscle-rod-wallpaper-preview.jpg',
+          text: 'WORKOUT YOUR WAY'
+        },
+        {
+          url: 'https://tpc.googlesyndication.com/daca_images/simgad/9213951888735746069',
+          text: 'Get Ready to BURN'
+        }
+      ];
+      
 
     const [image, setImage] = useState(imgArr[0]);
     const [index, setIndex] = useState(0);
 
-    
 
-// useEffect( ()=>(
-//     setInterval( ()=>{
-//         setImage(imgArr[index+1])
-//         setIndex(index+1)
-// },3000)
-// ),[index])
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+          // Increment the current index
+          setIndex(currentIndex => (currentIndex + 1) % imgArr.length);
+        }, 3000);
 
-    function handleIndex() {
-        // setIndex(index+1)
-    }
-
-    
+        return () => clearInterval(intervalId);
+      }, [index, imgArr.length]);
 
     return (
-        <div>
-            <img className={styles.img} src={image} alt='gym'/>
-            <button onClick={handleIndex}>click</button>
+        <div className={styles.imgSlider}>
+            <img className={styles.img} src={imgArr[index].url} alt='gym'/>
+            <div className={styles.imgText}>
+                <h2>{imgArr[index].text}</h2>
+            </div>
         </div>
     );
 }
