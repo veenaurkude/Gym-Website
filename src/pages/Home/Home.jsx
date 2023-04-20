@@ -1,7 +1,7 @@
-import styles from './Home.module.css'
+// import styles from './Home.module.css'
 import { ImageSlider } from '../../Components/imageSlider/ImageSlider';
-import { AboutUs } from '../AboutUs/AboutUs';
-import { Pricing } from '../Pricing/Pricing';
+// import { AboutUs } from '../AboutUs/AboutUs';
+// import { Pricing } from '../Pricing/Pricing';
 
 export function Home() {
 

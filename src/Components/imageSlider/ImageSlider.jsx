@@ -24,7 +24,7 @@ export function ImageSlider() {
       ];
       
 
-    const [image, setImage] = useState(imgArr[0]);
+    // const [image, setImage] = useState(imgArr[0]);
     const [index, setIndex] = useState(0);
 
 
