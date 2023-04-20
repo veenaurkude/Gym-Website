@@ -1,134 +1,136 @@
-import { useEffect, useState } from "react";
-import {useNavigate} from 'react-router-dom'
-import styles from './Register.module.css';
-import Joi from 'joi'
+import { useState } from "react";
+import { getUsers } from "../../utils/localStorage";
+import { useNavigate } from "react-router-dom";
+import styles from "./Register.module.css";
 
 export function Register() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState([]);
 
-  const navigate = useNavigate()
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passError, setPassError] = useState("");
 
-  const Joi = require('joi');
+  const navigate = useNavigate();
 
-const schema = Joi.object({
-    username: Joi.string()
-        .alphanum()
-        .min(6)
-        .max(20)
-        .required(),
+  const validateUserName = () => {
+    const regex = /^[a-zA-Z0-9_]{3,16}$/;
+    if (!fullName) {
+      setNameError("Username is required!");
+      return false;
+    } else if (!regex.test(fullName)) {
+      setNameError(
+        "Username should be 3-16 characters and shouldn't include any special character!"
+      );
+      return false;
+    } else {
+      setNameError("");
+      return true;
+    }
+  };
 
-        email: Joi.string()
-        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
+  const validateEmail = () => {
+    const regex = /^\S+@\S+\.\S+$/;
+    if (!email) {
+      setEmailError("Email is required!");
+      return false;
+    } else if (!regex.test(email)) {
+      setEmailError("It should be a valid email address!");
+      return false;
+    } else {
+      setEmailError("");
+      return true;
+    }
+  };
 
-    password: Joi.string()
-        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-
-    repeat_password: Joi.ref('password')
-})
-
-// useEffect( ()=>{
-//   schema.validateAsync(user[0]).then((response)=> {
-//     localStorage.setItem("user", JSON.stringify(user))
-//   })
-//   .catch((error) => {
-//     alert(error)
-//   });
-// },[user])
-
-  function handleName(e) {
-    setFullName(e.target.value);
-    // console.log(fullName)
-  }
-
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePassword(e) {
-    setPassword(e.target.value);
-  }
-
-  function handleRegister() {
-    navigate('/login')
-  }
+  const validatePassword = () => {
+    const regex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/;
+    if (!password) {
+      setPassError("Password is required!");
+      return false;
+    } else if (!regex.test(password)) {
+      setPassError(
+        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!"
+      );
+      return false;
+    } else {
+      setPassError("");
+      return true;
+    }
+  };
 
   function handleSubmit(e) {
-    e.preventDefault()
-    setUser([...user,{
-        id: Date.now(),
-        fullName: fullName,
-        email: email,
-        password: password
-    }])
-    setFullName('')
-    setEmail('')
-    setPassword('')
-    console.log(user)
+    e.preventDefault();
+
+    const isUserNameValid = validateUserName();
+    const isEmailValid = validateEmail();
+    const isPasswordValid = validatePassword();
+
+    if (isUserNameValid && isEmailValid && isPasswordValid) {
+      const users = getUsers();
+      users.push({
+        fullName,
+        email,
+        password,
+      });
+
+      localStorage.setItem("users", JSON.stringify(users));
+      navigate("/login");
+    }
+
+    setEmail("");
+    setFullName("");
+    setPassword("");
   }
-
-  const { error, value } = schema.validate({
-    username: fullName,
-    // password: password
-  });
-
-  // console.log(schema)
-  console.log(error)
-  // function handleFormChange() {
-  //   navigate('login');
-  // }
-
-  localStorage.setItem('user', JSON.stringify(user));
 
   return (
     <div className={styles.regContainer}>
+      <div></div>
       <div className={styles.registerContainer}>
-      <form className={styles.regFormContainer} onSubmit={handleSubmit}>
-        <label htmlFor="fname"></label>
-        <input
-          id="fname"
-          type="text"
-        //   autoComplete="off"
-          value={fullName}
-          placeholder="enter your name..."
-          onChange={handleName}
-          className={styles.regInput}
-          required
-        />
-        {
-          error ? <p>{error.message}</p> : ''
-        }
-        <br />
+        <h1>Register</h1>
+        <form className={styles.regFormContainer} onSubmit={handleSubmit}>
+          <label htmlFor="fname"></label>
+          <input
+            id="fname"
+            type="text"
+            value={fullName}
+            placeholder="enter your name..."
+            onChange={(e) => setFullName(e.target.value)}
+            className={styles.regInput}
+          />
 
-        <label htmlFor="email"></label>
-        <input
-          id="email"
-          type="email"
-          value={email}
-          placeholder="enter your email..."
-          onChange={handleEmail}
-          className={styles.regInput}
-          required
-        />
-        <br />
+          <span className={styles.errMsgName}>{nameError}</span>
 
-        <label htmlFor="pwd"></label>
-        <input
-          id="pwd"
-          type="password"
-          placeholder="enter your password..."
-          value={password}
-          onChange={handlePassword}
-          className={styles.regInput}
-          required
-        />
-        <br />
+          <br />
 
-        <button className={styles.regbtn} onClick={handleRegister}>Register</button>
-      </form>
+          <label htmlFor="email"></label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            placeholder="enter your email..."
+            onChange={(e) => setEmail(e.target.value)}
+            className={styles.regInput}
+          />
+          <span className={styles.errMsgEmail}>{emailError}</span>
+          <br />
 
+          <label htmlFor="pwd"></label>
+          <input
+            id="pwd"
+            type="password"
+            placeholder="enter your password..."
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={styles.regInput}
+          />
+          <span className={styles.errMsgPass}>{passError}</span>
+          <br />
+
+          <button className={styles.regbtn}>Register</button>
+        </form>
       </div>
     </div>
   );

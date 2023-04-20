@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { CgGym } from 'react-icons/cg';
+import {BiRun} from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import {GiBiceps} from 'react-icons/gi'
 import styles from './navbar.module.css';
 
 export function Navbar() {
@@ -15,11 +14,8 @@ export function Navbar() {
   function renderMenuLinks() {
     return (
       <div className={styles.menuLinks}>
-        <NavLink className={styles.link} to="/">
-          Home
-        </NavLink>
         <NavLink className={styles.link} to="/aboutus">
-          About Us
+          AboutUs
         </NavLink>
         <NavLink className={styles.link} to="/program">
           Program
@@ -44,7 +40,7 @@ export function Navbar() {
     <div className={styles.container}>
       <div className={styles.gymContainer}>
         <NavLink className={styles.linkGym} to="/">
-        <GiBiceps />responsivenessGym
+        <BiRun />Waves Gym 
         </NavLink>
       </div>
       <div className={styles.linkContainer}>
@@ -57,3 +53,6 @@ export function Navbar() {
     </div>
   );
 }
+
+
+

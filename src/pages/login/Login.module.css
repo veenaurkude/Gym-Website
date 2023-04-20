@@ -3,26 +3,24 @@
     align-items: center;
     justify-content: center;
     width: 99vw;
-    height: 90vh;
-    /* background-image: linear-gradient(79deg,rgb(101, 101, 199),rgb(238, 235, 235),rgb(112, 60, 60)); */
-    background-image: url('https://cdn.pixabay.com/photo/2017/08/07/14/02/man-2604149__340.jpg');
+    height: 100vh;
+    background-image: url('https://rare-gallery.com/thumbs/376147-4k-wallpaper.jpg');
     background-size: cover;
-    filter: opacity();
 }
 
 .formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: .8rem;
 }
 
 .loginContainer {
     border: 1px solid;
     padding: 3rem;
     border-radius: 1rem;
-    background-color: rgb(155, 125, 89);
-    height: 30vh;
+    background-color: rgb(196, 190, 190, .3);
+    height: 52vh;
 }
 
 .loginInput {
@@ -30,6 +28,13 @@
     height: 6vh;
     border: none;
     border-radius: 1rem;
+    padding: .3rem;
+}
+
+.logHead {
+    font-weight: 900;
+    margin-bottom: .2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .loginInput:hover {
@@ -57,15 +62,44 @@
     font-size: 12px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 1.1rem;
+    /* margin-bottom: 2rem; */
+    color: black;
 }
 
 .spanReg {
     color: rgb(148, 5, 5);
     text-decoration: underline;
     cursor: pointer;
+    background-color: aquamarine;
 }
 
 .spanReg:hover {
     color: rgb(165, 54, 10);
-    font-size: 15px;
+    /* font-size: 15px; */
+}
+
+img {
+    width: 20vw;
+    height: 60vh;
+}
+
+.errLogPass {
+    margin: 0;
+    padding: 0;
+    width: 20vw;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.errLogEmail {
+    margin: 0;
+    padding: 0;
+    width: 20vw;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.match {
+    color: red;
 }
