@@ -59,16 +59,19 @@ export function Login() {
     e.preventDefault();
     const emailValue = validateEmail();
     const userValue = validatePassword();
-    const details = users.find(
-      (user) => user.email === email && user.password === password
-    );
-
-    if (details && emailValue && userValue) {
-      navigate("/");
-    } else {
-      setMatch("user not found");
+    
+    if(emailValue && userValue) {
+      let details = users.find(
+        (user) => user.email === email && user.password === password
+      );
+  
+      if (details && emailValue && userValue) {
+        navigate("/");
+      } else {
+        setMatch("Please Register");
+      }
     }
-  }
+    }
 
   function handleFormChange() {
     navigate("./register");

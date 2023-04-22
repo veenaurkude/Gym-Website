@@ -11,7 +11,8 @@ export function Register() {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passError, setPassError] = useState("");
-
+  const [isRegistered, setIsRegistered] = useState("");
+  console.log(isRegistered);
   const navigate = useNavigate();
 
   const validateUserName = () => {
@@ -70,14 +71,23 @@ export function Register() {
 
     if (isUserNameValid && isEmailValid && isPasswordValid) {
       const users = getUsers();
-      users.push({
-        fullName,
-        email,
-        password,
-      });
+      const check = users.some((user) => user.email === email);
 
-      localStorage.setItem("users", JSON.stringify(users));
-      navigate("/login");
+      console.log(email);
+
+      console.log(check);
+
+      if (check) {
+        setIsRegistered("User already registered");
+      } else {
+        users.push({
+          fullName,
+          email,
+          password,
+        });
+        localStorage.setItem("users", JSON.stringify(users));
+        navigate("/login");
+      }
     }
 
     setEmail("");
@@ -87,9 +97,11 @@ export function Register() {
 
   return (
     <div className={styles.regContainer}>
-      <div></div>
       <div className={styles.registerContainer}>
-        <h1>Register</h1>
+      <div className={styles.headRegister}>
+        <p className={styles.isRegistered}>{isRegistered}</p>
+        <h1 className={styles.register}>Register</h1>
+        </div>
         <form className={styles.regFormContainer} onSubmit={handleSubmit}>
           <label htmlFor="fname"></label>
           <input
